@@ -4,15 +4,16 @@ body {
 
 table,
 td {
-border: 1px solid #333;
+border: 1px solid rgb(255, 0, 0);
 }
 
 thead,
 tfoot {
-background-color: rgb(168, 56, 56);
+background-color: rgb(255, 0, 0);
 color: #fff;
 }
 
+/* */
 .header {
     overflow: hidden;
     background-color: #9c9a01;
@@ -22,13 +23,13 @@ color: #fff;
   /* Style the header links */
   .header a {
     float: left;
-    color: black;
+    color: rgb(255, 255, 255);
     text-align: center;
     padding: 12px;
     text-decoration: none;
-    font-size: 18px;
-    line-height: 25px;
-    border-radius: 4px;
+    font-size: 22px;
+    line-height: 5px;
+    border-radius: 12px;
   }
   
   /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
