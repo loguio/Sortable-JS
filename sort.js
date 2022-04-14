@@ -1,11 +1,13 @@
-function sort_Alpha_Num (arrayObjet) {
+export function sort_Alpha_Num(arrayObjet) {
     function compare(firstValue, secondValue) {
-        if (firstValue.value < secondValue.value)
+        if (secondValue.value == "" && firstValue.value !== null) return -1;
+        if (firstValue.value == "" && secondValue.value !== null) return 1;
+        if (secondValue.value == '' || firstValue.value < secondValue.value)
             return -1;
-        if (firstValue.value > secondValue.value)
+        if (firstValue.value == '' || firstValue.value > secondValue.value)
             return 1;
         return 0;
     }
-    return arrayObjet.sort(compare)
+    let sorted = arrayObjet.sort(compare)
+    return sorted
 }
-
