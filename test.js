@@ -4,7 +4,6 @@ const loadData = heroes => {
     const image = document.getElementById('image');
     image.innerHTML = `<img src="${heroes.images.lg}" width="200"
     height="300"/>`
-
 }
 
 
