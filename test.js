@@ -23,6 +23,16 @@ const loadData = heroes1 => {
         cell = row.insertCell();
         cell.innerHTML = heroes.biography.fullName;
         cell = row.insertCell();
+        cell.innerHTML = heroes.powerstats.intelligence;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.powerstats.strength;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.powerstats.speed;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.powerstats.durability;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.powerstats.power;
+        cell = row.insertCell();
         cell.innerHTML = heroes.powerstats.combat;
         cell = row.insertCell();
         cell.innerHTML = heroes.appearance.race;
