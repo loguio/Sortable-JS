@@ -28,15 +28,29 @@ const filterGender = (data) => {
 
 const filterHeight = (data) => {
     let result = []
+    let i = 0
+    let temp = {}
     data.forEach(element => {
-        result.push({ id: element.id, value: element.appearance.height })
+        if (element.appearance.height[1] != null) {
+            result.push({ id: element.id, value: Number(element.appearance.height[1].split(" ")[0]) })
+        } else {
+            temp = { id: element.id, value: element.appearance.height[0] }
+        }
     })
+    result.push(temp)
     return result
 }
+
 const filterWeight = (data) => {
     let result = []
     data.forEach(element => {
-        result.push({ id: element.id, value: element.appearance.weight })
+        if (element.appearance.weight[1].includes("kg")) {
+            result.push({ id: element.id, value: Number(element.appearance.weight[1].split(" ")[0]) })
+        } else if (element.appearance.weight[1].includes("lb")) {
+            result.push({ id: element.id, value: Number(element.appearance.weight[1].split(" ")[0]) * 0.45359237 })
+        } else if (element.appearance.weight[1].includes("tons")) {
+            result.push({ id: element.id, value: Number(element.appearance.weight[1].split(" ")[0]) * 1016.04691 })
+        }
     })
     return result
 }
