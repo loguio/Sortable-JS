@@ -1,16 +1,19 @@
-const loadData = heroes => {
-    console.log(heroes.images.xs) // write your code using the data in a function
-        // note that you can not access heroes before this function is called.
-        // const image = document.getElementById('image');
-        // image.innerHTML = `<img src="${heroes.images.lg}" width="200"
-        //     height="300"/>`
+const loadData = heroes1 => {
+    //console.log(heroes.images.xs) // write your code using the data in a function
+    // note that you can not access heroes before this function is called.
+    // const image = document.getElementById('image');
+    // image.innerHTML = `<img src="${heroes.images.lg}" width="200"
+    //     height="300"/>`
+    heroes1.forEach(heroes => {
+        addRow(top, heroes);
+    })
 
-    function addRow(top) {
+    function addRow(top, heroes) {
         // (B1) GET TABLE
         var table = document.getElementById("table");
 
         // (B2) INSERT ROW
-        if (top) { var row = table.insertRow(0); } else { var row = table.insertRow(); }
+        if (top) { var row = table.insertRow(); } else { var row = table.insertRow(); }
 
         // (B3) INSERT CELLS
         var cell = row.insertCell();
@@ -38,6 +41,6 @@ const loadData = heroes => {
 }
 
 // Request the file fetch, it will download it in your browser cache
-fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/id/1.json')
+fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json')
     .then((response) => response.json()) // parse the response from JSON
     .then(loadData) // .then will call the function with the JSON value
