@@ -47,7 +47,6 @@ const loadData = heroes1 => {
         cell = row.insertCell();
         cell.innerHTML = heroes.biography.alignment;
     }
-    addRow();
 }
 
 // Request the file fetch, it will download it in your browser cache
