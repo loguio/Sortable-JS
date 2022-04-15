@@ -28,7 +28,6 @@ const filterGender = (data) => {
 
 const filterHeight = (data) => {
     let result = []
-    let i = 0
     let temp = {}
     data.forEach(element => {
         if (element.appearance.height[1] != null) {
