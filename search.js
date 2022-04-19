@@ -1,19 +1,19 @@
 let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 data = await data.json()
 
-function search (search) {
-    let result = []
-    for (let index = 0; index < data.length; index++) {
-        let objet = data[index];
-        objetArray.values(objet)
-        for (let index = 0; index < objetArray.length; index++) {
-            const element = objetArray[index];
-            if (element.search(search) !== -1){
-                result.push(objet)
-                break
-            }
-        } 
-    }
-}
+function search(search) {
+    const searchLowerCase = search.toLowerCase()
+    let FilteredCharacters = data.filter((objet) => {
+        return (
+            objet.name.toLowerCase().includes(searchLowerCase) ||
+            objet.biography.fullName.toLowerCase().includes(searchLowerCase) ||
+            ((objet.appearance.race !== null) && objet.appearance.race.toLowerCase().includes(searchLowerCase)
+            ) ||
+            ((objet.biography.placeOfBirth !== null)
+                && objet.biography.placeOfBirth.toLowerCase().includes(searchLowerCase)
+            )
 
-console.log(search("flash"))
+        )
+    });
+    return FilteredCharacters
+}
