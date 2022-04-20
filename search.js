@@ -1,7 +1,5 @@
-let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
-data = await data.json()
-
-function search(search) {
+export function Search(search, data) {
+    
     const searchLowerCase = search.toLowerCase()
     let FilteredCharacters = data.filter((objet) => {
         return (
