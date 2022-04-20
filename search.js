@@ -1,5 +1,4 @@
-export function Search(search, data) {
-    
+function Search(search) {
     const searchLowerCase = search.toLowerCase()
     let FilteredCharacters = data.filter((objet) => {
         return (

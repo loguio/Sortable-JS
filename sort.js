@@ -1,13 +1,13 @@
 let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 data = await data.json()
 
-export function sort_Alpha_Num(arrayObjet, descending) {
+export function Sort_Alpha_Num(arrayObjet, descending) {
     if (descending) {
-        return arrayObjet.sort(compare)
+        return arrayObjet.sort(Compare)
     }else {
-        return arrayObjet.sort(compare).reverse()
+        return arrayObjet.sort(Compare).reverse()
     }
-    function compare(firstValue, secondValue) {
+    function Compare(firstValue, secondValue) {
         if (secondValue.value == "" && firstValue.value !== null) return -1;
         if (firstValue.value == "" && secondValue.value !== null) return 1;
         if (secondValue.value == '' || firstValue.value < secondValue.value)
@@ -28,7 +28,7 @@ export function SortObjectID(arrayObjet) {
         return arrayId.indexOf(b.id) - arrayId.indexOf(a.id);
     })
 }
-console.log(SortObjectID(sort_Alpha_Num([
+console.log(SortObjectID(Sort_Alpha_Num([
     {"id": 1, "value": "Marius"},
     {"id": 2, "value": "Yassine"},
     {"id": 3, "value": "Nathan"},

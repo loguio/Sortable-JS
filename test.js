@@ -1,5 +1,3 @@
-import {Search} from "./search.js"
-
 const loadData = heroes1 => {
     //console.log(heroes.images.xs) // write your code using the data in a function
     // note that you can not access heroes before this function is called.
@@ -59,10 +57,8 @@ fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json')
 function SearchBar() {
     let search = document.getElementById('SearchBar')
     search.addEventListener("keyup", e => {
-        Search(e.target.value, loadData)
+        Search(e.target.value)
     });
-
-    
 }
 SearchBar()
 
