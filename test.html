@@ -15,6 +15,13 @@
           <a href="#contact">Contact</a>
           <a href="#about">About</a>
     </div>
+<input type="text" id="searchbar"> oninput: <span id="result"></span>
+<script>
+      input.oninput = function() {
+        result.innerHTML = input.value;
+      };
+</script>
+
     
 <table id="table">
     <thead>
