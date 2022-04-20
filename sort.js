@@ -18,7 +18,7 @@ export function sort_Alpha_Num(arrayObjet, descending) {
     }
 }
 
-export function TrieObjetID(arrayObjet) {
+export function SortObjectID(arrayObjet) {
     let arrayId = []
     for (let index = 0; index < arrayObjet.length; index++) {
         const element = arrayObjet[index];
@@ -28,7 +28,7 @@ export function TrieObjetID(arrayObjet) {
         return arrayId.indexOf(b.id) - arrayId.indexOf(a.id);
     })
 }
-console.log(TrieObjetID(sort_Alpha_Num([
+console.log(SortObjectID(sort_Alpha_Num([
     {"id": 1, "value": "Marius"},
     {"id": 2, "value": "Yassine"},
     {"id": 3, "value": "Nathan"},
