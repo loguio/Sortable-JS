@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<script src="test.js"></script>
+<script src="test.js" type="module"></script>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css">
@@ -15,13 +15,10 @@
           <a href="#contact">Contact</a>
           <a href="#about">About</a>
     </div>
-<input type="text" id="searchbar"> oninput: <span id="result"></span>
-<script>
-      input.oninput = function() {
-        result.innerHTML = input.value;
-      };
-</script>
-
+ 
+<form class="example" action="test.html">
+  <input type="search" placeholder="Search.." name="search" id="SearchBar">
+</form>
     
 <table id="table">
     <thead>
