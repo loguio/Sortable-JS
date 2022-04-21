@@ -1,4 +1,5 @@
-import {Search} from "./search.js"
+import {Search} from "./search.js" ; "./sort.js"
+
 
 const loadData = heroes1 => {
     //console.log(heroes.images.xs) // write your code using the data in a function
@@ -50,7 +51,6 @@ const loadData = heroes1 => {
         cell.innerHTML = heroes.biography.alignment;
     }
 }
-
 // Request the file fetch, it will download it in your browser cache
 fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json')
     .then((response) => response.json()) // parse the response from JSON
@@ -61,8 +61,13 @@ function SearchBar() {
     search.addEventListener("keyup", e => {
         Search(e.target.value, loadData)
     });
-
-    
 }
 SearchBar()
 
+// Ascending and descending function for the array
+function UpDown() {
+    const updown = ['tbody'];
+    updown.sort('tbody');
+    
+    
+}
