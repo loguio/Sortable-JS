@@ -2,6 +2,10 @@ body {
   background-color:#ecea43;
 }
 
+fieldset {
+  border: 2px;
+}
+
 table {
 	max-width: 100%;
 	border-collapse: collapse;

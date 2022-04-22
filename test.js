@@ -1,4 +1,6 @@
-import {Search} from "./search.js" ; "./sort.js" ; "./repucData.js"
+import {Search} from "./search.js" 
+import { sort_Alpha_Num } from "./sort.js";
+
 
 
 const loadData = heroes1 => {
@@ -64,12 +66,8 @@ function SearchBar() {
 }
 SearchBar()
 
-// Ascending and descending function for the array
+// Ascending and descending function for the data 
 function UpDown() {
-    const updown = ['tbody'];
-    updown.sort('tbody');
-    result = [];
-    Data.
-    
-    
+    let updown = document.getElementById('name');
+    updown.addEventListener("click", )
 }

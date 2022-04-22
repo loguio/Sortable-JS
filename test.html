@@ -21,70 +21,67 @@
 
   <br>
   <br>
-
-  <select onchange="click" id="filter">
-    <option value="">Filter By</option>
-    <option value="1">Name</option>
-    <option value="2">Place Of Birth</option>
-    <option value="3">Option 3</option>
-    <option value="4"></option>
-  </select>
+  
+  <div>
+<input type="checkbox" id="Ascending/Descending">
+<label>Ascending/Descending (default ⬇)</label>
+  </div>
 
   <fieldset>
     <div>
-    <input type="checkbox" id="Name" name="Name">
+    <input type="radio" id="Name" name="choice">
     <label for="Name">Name</label>
     </div>
 
     <div>
-      <input type="checkbox" id="Place of Birth" name="Place of Birth">
+      <input type="radio" id="Place of Birth" name="choice">
       <label for="Place Of Birth">Place Of Birth</label>
       </div>
 
     <div>
-      <input type="checkbox" id="Race" name="Race">
+      <input type="radio" id="Race" name="choice">
       <label for="Race">Race</label>
     </div>
 
     <div>
-      <input type="checkbox" id="Gender" name="Gender">
+      <input type="radio" id="Gender" name="choice">
       <label for="Gender">Gender</label>
     </div>
     
     <div>
-      <input type="checkbox" id="Weight" name="Weight">
+      <input type="radio" id="Weight" name="choice">
       <label for="Weight">Weight</label>
     </div>
     
     <div>
-      <input type="checkbox" id="Gender" name="Gender">
+      <input type="radio" id="Gender" name="choice">
       <label for="Gender">Gender</label>
     </div>
-</fieldset>
+  </fieldset> 
 </form>
-    
+
 <table id="table">
+  <tbody id="tableData">
     <thead>
         <tr>
             <th >Icon</th>
-            <th >Name</th>
-            <th >Full Name</th>
-            <th >Intelligence</th>
-            <th >Strenght</th>
-            <th >Speed</th>
-            <th >Durability</th>
-            <th >Power</th>
-            <th >Combat</th>
-            <th >Race</th>
-            <th >Gender</th>
-            <th >Height</th>
-            <th >Weight</th>
-            <th >Place of Birth</th>
-            <th >Alignment</th>
+            <th id="name">Name</th>
+            <th id="fullname">Full Name</th>
+            <th id="intelligence">Intelligence</th>
+            <th id="strenght">Strenght</th>
+            <th id="speed">Speed</th>
+            <th id="durability">Durability</th>
+            <th id="power">Power</th>
+            <th id="combat">Combat</th>
+            <th id="race">Race</th>
+            <th id="gender">Gender</th>
+            <th id="height">Height</th>
+            <th id="weight">Weight</th>
+            <th id="placeofbirth">Place of Birth</th>
+            <th id="alignment">Alignment</th>
         </tr>
     </thead>
-    <tbody id="tableData">
-    </tbody>
+  </tbody>
 </table>
 
 </body>
