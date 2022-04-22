@@ -1,4 +1,4 @@
-import {Search} from "./search.js" ; "./sort.js"
+import {Search} from "./search.js" ; "./sort.js" ; "./repucData.js"
 
 
 const loadData = heroes1 => {
@@ -68,6 +68,8 @@ SearchBar()
 function UpDown() {
     const updown = ['tbody'];
     updown.sort('tbody');
+    result = [];
+    Data.
     
     
 }
