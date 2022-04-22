@@ -1,7 +1,32 @@
- function getSelectedValue() {
-     var selectedValue = document.getElementById("select").value;
-     return selectedValue;
+ var data = {}
+ let numberOfItems = 20;
+ let firstIndex = 0;
+ async function getAll(obj) {
+     var hero = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json');
+     var heroData = await hero.json()
+     Object.assign(obj, heroData)
+     return obj
  }
+
+ let data2 = getAll(data)
+
+ data2.then(function first(result) {
+     showData(result, numberOfItems)
+ })
+
+
+ function showData(data, numberOfItems) {
+     for (let i = firstIndex; i < firstIndex + numberOfItems; i++) {
+         addRow(top, data[i])
+     }
+ }
+
+ //  function nextPage() {
+ //      if firstIndex + numberOfItems <=
+ //          firstIndex += numberOfItems;
+ //      showData(data, numberOfItems)
+ //  }
+
 
  function addRow(top, heroes) {
      // GET TABLE
@@ -42,16 +67,4 @@
      cell = row.insertCell();
      cell.innerHTML = heroes.biography.alignment;
  }
-
-
- const loadData = heroes1 => {
-     heroes1.forEach(heroes => {
-         addRow(top, heroes);
-     })
- }
-
- // Request the file fetch, it will download it in your browser cache
- fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json')
-     .then((response) => response.json()) // parse the response from JSON
-     .then(loadData) // .then will call the function with the JSON value
- loadData();
+ //showData();
