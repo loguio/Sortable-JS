@@ -2,9 +2,15 @@
  let numberOfItems = 20;
  let firstIndex = 0;
  let currentPage = 1;
- let max = 532;
+ let max = 563;
  let maxPages = Math.ceil(max / numberOfItems);
 
+ function getSelectedValue() {
+     var select = document.getElementById("select");
+     var value = select.value
+     console.log(value);
+ }
+ getSelectedValue();
 
  async function getAll(obj) {
      var hero = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json');
@@ -17,9 +23,10 @@
 
  function showPage() {
      data2.then(function first(result) {
-             showData(result, numberOfItems)
-         })
-         //  showPageInfo();
+         console.log(result[559])
+         showData(result, numberOfItems)
+     })
+     showPageInfo();
  }
 
  showPage();
@@ -31,9 +38,9 @@
  }
 
  function nextPage() {
-     var table = document.getElementById("tableData");
-     table.innerHTML = ""
      if (firstIndex + numberOfItems <= max) {
+         var table = document.getElementById("tableData");
+         table.innerHTML = ""
          firstIndex += numberOfItems;
          currentPage++;
          showPage();
@@ -41,9 +48,9 @@
  }
 
  function previous() {
-     var table = document.getElementById("tableData");
-     table.innerHTML = ""
-     if (firstIndex - numberOfItems >= 0) {
+     if (firstIndex - numberOfItems > 0) {
+         var table = document.getElementById("tableData");
+         table.innerHTML = ""
          firstIndex -= numberOfItems
          currentPage--;
          showPage();
@@ -68,9 +75,10 @@
      showPage();
  }
 
- //  function showPageInfo() {
- //      document.getElementById('pageNo').innerHTML = ` Page ${currentPage} / ${maxPages} `
- //  }
+ function showPageInfo() {
+     var span = document.getElementById("pageNo");
+     span.innerHTML = ` Page ${currentPage} / ${maxPages} `
+ }
 
  function addRow(top, heroes) {
      // GET TABLE
@@ -111,4 +119,4 @@
      cell = row.insertCell();
      cell.innerHTML = heroes.biography.alignment;
  }
- //showData();
+ showData();

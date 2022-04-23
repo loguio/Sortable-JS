@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<script src="get-all.js"></script>
 <html>
 <head>
 <meta charset="utf-8">
@@ -23,15 +22,13 @@
           <a href="#contact">Contact</a>
           <a href="#about">About</a>
         </div>
-    <label for="heroes-select">Numbers of heroes:</label>
-
-<select name="heroes_no" id="heroes-select">
-    <option value="">--Please choose an option--</option>
+    <label for="select">Numbers of heroes:</label>
+<select  id="select">
     <option value="10">10</option>
-    <option value="20">20</option>
+    <option value="20" selected>20</option>
     <option value="50">50</option>
     <option value="100">100</option>
-    <option value="731">all results</option>
+    <option value="all">all results</option>
 </select>
 
 </select>
@@ -58,12 +55,16 @@
     <tbody id="tableData">
     </tbody>
 </table>
+<center>
 <div>
-      <button class="btn" onclick="firstPage()">|<</button>
-      <button class="btn" onclick="previous()"><</button>
+      <button class="btn" onclick="firstPage()">First Page</button>
+      <button class="btn" onclick="previous()">Prev</button>
       <span id="pageNo"></span>
-      <button class="btn" onclick="nextPage()">></button>
-      <button class="btn" onclick="lastPage()">>|</button>
+      <button class="btn" onclick="nextPage()">Next</button>
+      <button class="btn" onclick="lastPage()">Last Page</button>
     </div>
+</center>
+<script src="get-all.js"></script>
+
 </body>
 </html>
