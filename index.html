@@ -1,12 +1,70 @@
-<script type="module" src="recupData.js"> </script>
+<!DOCTYPE html>
 <html>
-
 <head>
-
+<meta charset="utf-8">
+<title>Sortable</title>
 </head>
-
+    <style>
+        table{
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        th, td{
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+    </style>
 <body>
-    <p>bonjour</p>
-</body>
+<div class="header">
+        <a href="#default" class="logo" img="img/sortable.jpeg"><img src="img/sortable.jpeg" ></a>
+        <div class="header-right">
+          <a class="active" href="#home">Home</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
+    <label for="select">Numbers of heroes:</label>
+<select  id="select" onclick="getSelectedValue()" >
+    <option value="10" onclick="getSelectedValue()">10</option>
+    <option value="20"  selected onclick="getSelectedValue()">20</option>
+    <option value="50"  onclick="getSelectedValue()">50</option>
+    <option value="100" onclick="getSelectedValue()">100</option>
+    <option value="all" >all results</option>
+</select>
 
+</select>
+<table id="table">
+    <thead>
+        <tr>
+            <th >Icon</th>
+            <th >Name</th>
+            <th >Full Name</th>
+            <th >Intelligence</th>
+            <th >Strenght</th>
+            <th >Speed</th>
+            <th >Durability</th>
+            <th >Power</th>
+            <th >Combat</th>
+            <th >Race</th>
+            <th >Gender</th>
+            <th >Height</th>
+            <th >Weight</th>
+            <th >Place of Birth</th>
+            <th >Alignment</th>
+        </tr>
+    </thead>
+    <tbody id="tableData">
+    </tbody>
+</table>
+<center>
+<div>
+      <button class="btn" onclick="firstPage()">First Page</button>
+      <button class="btn" onclick="previous()">Prev</button>
+      <span id="pageNo"></span>
+      <button class="btn" onclick="nextPage()">Next</button>
+      <button class="btn" onclick="lastPage()">Last Page</button>
+    </div>
+</center>
+<script src="get-all.js"></script>
+
+</body>
 </html>

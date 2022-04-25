@@ -442,5 +442,5 @@ export async function filterCombat(url, nb = 50) {
 }
 
 
-let tempo = await filterCombat(url)
+let tempo = await filterPlaceOfBirth(url)
 console.log(tempo)

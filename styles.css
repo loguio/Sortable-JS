@@ -1,5 +1,22 @@
 body {
-    background-color: #cbdff1;
+    background-color: #ecea43;
+}
+
+table {
+    max-width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-style: outset;
+    border-width: 1px;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 10px 20px;
+    border: 1px solid #000;
+    background-color: #faf741;
 }
 
 table {
@@ -15,8 +32,15 @@ th {
 
 thead,
 tfoot {
-    background-color: rgb(165, 207, 228);
+    background-color: rgb(95, 4, 4);
     color: #fff;
+}
+
+.tableaux {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .first {
@@ -31,7 +55,7 @@ tfoot {
 
 .header {
     overflow: hidden;
-    background-color: #718bde;
+    background-color: #9c9a01;
     padding: 20px 10px;
 }
 
@@ -69,7 +93,7 @@ tfoot {
 /* Style the active/current link*/
 
 .header a.active {
-    background-color: rgb(121, 177, 245);
+    background-color: rgb(145, 137, 33);
     color: white;
 }
 
