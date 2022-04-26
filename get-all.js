@@ -2,9 +2,9 @@ var data = {}
 let elt = document.querySelector("select")
 console.log(elt.value)
 let numberOfItems = parseInt(elt.value);
-elt.addEventListener("change", function() {
-    numberOfItems = parseInt(elt.value)
-})
+// elt.addEventListener("change", function() {
+//     numberOfItems = parseInt(elt.value)
+// })
 console.log(numberOfItems)
 let firstIndex = 0;
 let currentPage = 1;
@@ -15,7 +15,13 @@ function getSelectedValue() {
     var select = document.getElementById("select");
     var value = select.value
     numberOfItems = parseInt(value)
-    console.log(numberOfItems)
+    maxPages = Math.ceil(max / numberOfItems);
+    var table = document.getElementById("tableData");
+    table.innerHTML = ""
+    firstIndex = 0
+    currentPage = 1;
+    showPage();
+    return numberOfItems
 }
 
 
