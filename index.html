@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sortable</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="logo" img="img/sortable.jpeg"><img src="img/sortable.jpeg" ></a>
+        <div class="header-right">
+          <a href="about.html">About</a>
+        </div>
+          </div>
+    <label for="select">Numbers of heroes per page:</label>
+<select  id="select" onclick="getSelectedValue()" >
+    <option value="10" onclick="getSelectedValue()">10</option>
+    <option value="20"  selected onclick="getSelectedValue()">20</option>
+    <option value="50"  onclick="getSelectedValue()">50</option>
+    <option value="100" onclick="getSelectedValue()">100</option>
+    <option value="564" >all results</option>
+</select>
+</div>
+<center>
+  <div>
+        <input type="text" onkeyup="SearchBar()" placeholder="Search.." name="search" id="searchBar">
+    </div>
+</center>
+<button type="button" onclick="resetFilters()">
+    Reset filters
+</button>
+<button type="button" onclick="ascendingOrder()">
+    Ascending order
+</button>
+<button type="button" onclick="descendingOrder()">
+    Descending order
+</button>
+<table id="table">
+    <thead>
+        <tr>
+            <th >Icon</th>
+            <th >Name</th>
+            <th id="fullname" onclick="filterName()" >Full Name</th>
+            <th id="intelligence" onclick="filterIntel()" >Intelligence</th>
+            <th id="intelligence" onclick="filterStrength()" >Strenght</th>
+            <th  id="speed" onclick="filterSpeed()">Speed</th>
+            <th  id="durability" onclick="filterDurability()">Durability</th>
+            <th  id="power" onclick="filterPower()" >Power</th>
+            <th  id="combat" onclick="filterCombat()">Combat</th>
+            <th  id="race" onclick="filterRace()">Race</th>
+            <th  id="gender" onclick="filterGender()">Gender</th>
+            <th id="height" onclick="filterHeight()">Height</th>
+            <th id="weight" onclick="filterWeight()">Weight</th>
+            <th id="placeOfBirth" onclick="filterPoB()">Place of Birth</th>
+            <th id="alignment" onclick="filterAlignment()">Alignment</th>
+        </tr>
+    </thead>
+    <tbody id="tableData">
+    </tbody>
+</table>
+<center>
+    <div>
+      <button class="btn" onclick="firstPage()">First Page</button>
+      <button class="btn" onclick="previous()">Prev</button>
+      <span id="pageNo"></span>
+      <button class="btn" onclick="nextPage()">Next</button>
+      <button class="btn" onclick="lastPage()">Last Page</button>
+    </div>
+</center>
+<script src="get-all.js"></script>
+</body>
+</html>
