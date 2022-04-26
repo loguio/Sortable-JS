@@ -82,3 +82,4 @@ const loadData = heroes1 => {
             .then((response) => response.json()) // parse the response from JSON
             .then(loadData) // .then will call the function with the JSON value
         loadData();
+    }
