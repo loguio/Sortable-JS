@@ -61,10 +61,10 @@ const loadData = heroes1 => {
             .then(loadData) // .then will call the function with the JSON value
 
         function SearchBar() {
-            let search = document.getElementById('SearchBar')
-            search.addEventListener("keyup", e => {
-                Search(e.target.value, loadData)
-            });
+            let search = document.getElementById('searchBar').value
+            console.log(search.addEventListener("keyup", e => {
+                Search(e.target.value)
+            }));
 
 
         }

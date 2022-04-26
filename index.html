@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Sortable</title>
 </head>
+<script type="module" src="get-all.js"></script>
     <style>
         table{
             border-collapse: collapse;
@@ -15,12 +16,16 @@
         }
     </style>
 <body>
-<div class="header">
+    <div class="header">
         <a href="#default" class="logo" img="img/sortable.jpeg"><img src="img/sortable.jpeg" ></a>
         <div class="header-right">
           <a class="active" href="#home">Home</a>
           <a href="#about">About</a>
         </div>
+    </div>
+    <div>
+        <input type="text" onkeyup="SearchBar()" placeholder="Search.." name="search" id="searchBar">
+    </div>
     <label for="select">Numbers of heroes:</label>
 <select  id="select" onclick="getSelectedValue()" >
     <option value="10" onclick="getSelectedValue()">10</option>
@@ -55,7 +60,7 @@
     </tbody>
 </table>
 <center>
-<div>
+    <div>
       <button class="btn" onclick="firstPage()">First Page</button>
       <button class="btn" onclick="previous()">Prev</button>
       <span id="pageNo"></span>
@@ -63,7 +68,7 @@
       <button class="btn" onclick="lastPage()">Last Page</button>
     </div>
 </center>
-<script src="get-all.js"></script>
+
 
 </body>
 </html>
