@@ -23,7 +23,8 @@
           <a href="#contact">Contact</a>
           <a href="#about">About</a>
         </div>
-    <label for="select">Numbers of heroes:</label>
+          <div>
+    <label for="select">Numbers of heroes per page:</label>
 <select  id="select" onclick="getSelectedValue()" >
     <option value="10" onclick="getSelectedValue()">10</option>
     <option value="20"  selected onclick="getSelectedValue()">20</option>
@@ -31,8 +32,12 @@
     <option value="100" onclick="getSelectedValue()">100</option>
     <option value="564" >all results</option>
 </select>
-
-</select>
+</div>
+<center>
+  <div>
+        <input type="text" onkeyup="SearchBar()" placeholder="Search.." name="search" id="searchBar">
+    </div>
+</center>
 <table id="table">
     <thead>
         <tr>

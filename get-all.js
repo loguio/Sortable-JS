@@ -365,7 +365,7 @@ function nextPage() {
 }
 
 function previous() {
-    if (!sortName) {
+    if (!listofSorted.includes(sorted)) {
         if (firstIndex - numberOfItems > 0) {
             var table = document.getElementById("tableData");
             table.innerHTML = ""
@@ -379,13 +379,13 @@ function previous() {
             table.innerHTML = ""
             firstIndex -= numberOfItems
             currentPage--;
-            filterName();
+            switcher();
         }
     }
 }
 
 function firstPage() {
-    if (!sortName) {
+    if (!listofSorted.includes(sorted)) {
         var table = document.getElementById("tableData");
         table.innerHTML = ""
         firstIndex = 0
@@ -396,12 +396,12 @@ function firstPage() {
         table.innerHTML = ""
         firstIndex = 0
         currentPage = 1;
-        filterName();
+        switcher(); //switcher is a function that will switch between the different sorting methods
     }
 }
 
 function lastPage() {
-    if (!sortName) {
+    if (!listofSorted.includes(sorted)) {
         var table = document.getElementById("tableData");
         table.innerHTML = ""
         firstIndex = max - numberOfItems
@@ -412,7 +412,7 @@ function lastPage() {
         table.innerHTML = ""
         firstIndex = (maxPages * numberOfItems) - numberOfItems;
         currentPage = maxPages;
-        filterName();
+        switcher(); //switcher is a function that will switch between the different sorting methods
     }
 }
 
@@ -483,4 +483,49 @@ function TrieObjetID(arrayObjet = sort_Alpha_Num(arrayObjet)) {
     return data5.sort(function(a, b) {
         return array.indexOf(a.id) - array.indexOf(b.id);
     })
+}
+
+function switcher() {
+    switch (sorted) {
+        case 'name':
+            filterName();
+            break;
+        case 'intelligence':
+            filterIntel();
+            break;
+        case 'strength':
+            filterStrength();
+            break;
+        case 'speed':
+            filterSpeed();
+            break;
+        case 'durability':
+            filterDurability();
+            break;
+        case 'power':
+            filterPower()
+            break;
+        case 'combat':
+            filterCombat()
+            break;
+        case 'race':
+            filterRace()
+            break;
+        case 'gender':
+            filterGender()
+            break;
+        case 'height':
+            filterHeight()
+            break;
+        case 'weight':
+            filterWeight()
+            break;
+        case 'pob':
+            filterPoB()
+            break;
+        case 'alignment':
+            filterAlignment()
+            break;
+
+    }
 }
