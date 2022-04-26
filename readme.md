@@ -103,14 +103,10 @@ Use the `BLANK_README.md` to get started.
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [JavaScript](https://www.javascript.com/)
+* [HTML](https://html.com/)
+* [CSS]
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -210,7 +206,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Nathan  BOURRY  - nathan.bourry@ynov.com
+Pierre  DELANOU  - pierre.delanou@ynov.com
+Marius  BOURSE  - marius.bourse@ynov.com
+Yassine ENNOUHI  - yassine.ennouhi@ynov.com
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
