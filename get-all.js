@@ -1,3 +1,6 @@
+import * as Search from "./search.js"
+
+
 var data = {}
 let elt = document.querySelector("select")
 console.log(elt.value)
@@ -130,3 +133,10 @@ function addRow(top, heroes) {
     cell.innerHTML = heroes.biography.alignment;
 }
 // showData();
+SearchBar()
+function SearchBar() { //Function that retrieves data from the search bar and sends it to the Search function
+    let search = document.getElementById('searchBar')
+    search.addEventListener("keyup", (e) => {
+        Search.Search(e.target.value)
+    })
+}
