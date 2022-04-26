@@ -1,3 +1,5 @@
+// import * as Search from "./search.js"
+
 var data = {}
 let elt = document.querySelector("select")
 console.log(elt.value)
@@ -380,36 +382,6 @@ function addRow(top, heroes) {
 }
 // showData();
 
-function sort_Alpha_Num(arrayObjet, value1, value2, descending) {
-    if (descending === false) { //ascending and descending order
-        return arrayObjet.sort(compare)
-    } else {
-        return arrayObjet.sort(compare).reverse()
-    }
-
-    function compare(firstValue, secondValue) {
-        if (secondValue[value1][value2] == "" && firstValue[value1][value2] !== null) return -1;
-        if (firstValue[value1][value2] == "" && secondValue[value1][value2] !== null) return 1;
-        if (secondValue[value1][value2] == '' || firstValue[value1][value2] < secondValue[value1][value2])
-            return -1;
-        if (firstValue[value1][value2] == '' || firstValue[value1][value2] > secondValue[value1][value2])
-            return 1;
-        return 0;
-    }
-    // return arrayObjet.sort(compare)
-}
-
-function TrieObjetID(arrayObjet = sort_Alpha_Num(arrayObjet)) {
-    let array = []
-    for (let index = 0; index < arrayObjet.length; index++) {
-        const element = arrayObjet[index];
-        array.push(element.id)
-    }
-    return data5.sort(function(a, b) {
-        return array.indexOf(a.id) - array.indexOf(b.id);
-    })
-}
-
 function switcher() {
     switch (sorted) {
         case 'name':
@@ -475,30 +447,32 @@ function descendingOrder() {
     descending = true;
     console.log(descending);
 }
-// let dataSearch = data2
 
+function sort_Alpha_Num(arrayObjet, value1, value2, descending) {
+    if (descending === false) { //ascending and descending order
+        return arrayObjet.sort(compare)
+    } else {
+        return arrayObjet.sort(compare).reverse()
+    }
 
-// function Search(search) {
-//     const searchLowerCase = search.toLowerCase() //we put it in lower case so that it is not case sensitive
-//     let FilteredCharacters = data2.filter((objet) => { //Search for text in all categories
-//         return (
-//             objet.name.toLowerCase().includes(searchLowerCase) ||
-//             objet.biography.fullName.toLowerCase().includes(searchLowerCase) ||
-//             ((objet.appearance.race !== null) && objet.appearance.race.toLowerCase().includes(searchLowerCase)) ||
-//             ((objet.biography.placeOfBirth !== null) &&
-//                 objet.biography.placeOfBirth.toLowerCase().includes(searchLowerCase)
-//             )
+    function compare(firstValue, secondValue) {
+        if (secondValue[value1][value2] == "" && firstValue[value1][value2] !== null) return -1;
+        if (firstValue[value1][value2] == "" && secondValue[value1][value2] !== null) return 1;
+        if (secondValue[value1][value2] == '' || firstValue[value1][value2] < secondValue[value1][value2])
+            return -1;
+        if (firstValue[value1][value2] == '' || firstValue[value1][value2] > secondValue[value1][value2])
+            return 1;
+        return 0;
+    }
+}
 
-//         )
-//     });
-//     return FilteredCharacters
-// }
-
-
-// function SearchBar() { //Function that retrieves data from the search bar and sends it to the Search function
-//     let search = document.getElementById('searchBar')
-//     search.addEventListener("keyup", (e) => {
-//         console.log(Search(e.target.value))
-//         console.log(e.target.value)
-//     })
-// }
+function TrieObjetID(arrayObjet = sort_Alpha_Num(arrayObjet)) {
+    let array = []
+    for (let index = 0; index < arrayObjet.length; index++) {
+        const element = arrayObjet[index];
+        array.push(element.id)
+    }
+    return data5.sort(function(a, b) {
+        return array.indexOf(a.id) - array.indexOf(b.id);
+    })
+}
