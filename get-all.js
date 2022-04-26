@@ -12,12 +12,13 @@ console.log(numberOfItems)
 let firstIndex = 0;
 let currentPage = 1;
 let max = 563;
+sejhdvfhjgdwfvgjxhfcgxjhkdfbg
 let maxPages = Math.ceil(max / numberOfItems);
 
 function getSelectedValue() {
     var select = document.getElementById("select");
     var value = select.value
-    numberOfItems = parseInt(value)
+    numberOfItems = parseInt(value) kjgkjwdhflmwshdkmfjhdkmjfghxdmkfhgkldxjdhgkljdhkljfghwdfkljhgjklwsd
     console.log(numberOfItems)
 }
 
@@ -128,6 +129,7 @@ function addRow(top, heroes) {
 }
 // showData();
 SearchBar()
+
 function SearchBar() { //Function that retrieves data from the search bar and sends it to the Search function
     let search = document.getElementById('searchBar')
     search.addEventListener("keyup", (e) => {
