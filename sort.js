@@ -1,13 +1,14 @@
 let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 data = await data.json()
 
+//This function aims to take the object array and sort it by alphabetical or numerical order with also in ascending and descending order
 export function Sort_Alpha_Num(arrayObjet, descending) {
-    if (descending) {
+    if (descending) { //ascending and descending order
         return arrayObjet.sort(Compare)
     }else {
         return arrayObjet.sort(Compare).reverse()
     }
-    function Compare(firstValue, secondValue) {
+    function Compare(firstValue, secondValue) { //alphabetical or numerical order
         if (secondValue.value == "" && firstValue.value !== null) return -1;
         if (firstValue.value == "" && secondValue.value !== null) return 1;
         if (secondValue.value == '' || firstValue.value < secondValue.value)
@@ -18,23 +19,17 @@ export function Sort_Alpha_Num(arrayObjet, descending) {
     }
 }
 
+//sort based on the order of the object array that was sorted in Sort_Alpha_Num to return all API heroes in the correct order
 export function SortObjectID(arrayObjet) {
     let arrayId = []
-    for (let index = 0; index < arrayObjet.length; index++) {
+    for (let index = 0; index < arrayObjet.length; index++) { //Retrieval of sort IDs in the Sort_Alpha_Num
         const element = arrayObjet[index];
         arrayId.push(element.id)
     }
-    return data.sort(function(a, b) {
+    return data.sort(function(a, b) { // Sorts data according to the sorted array of IDs
         return arrayId.indexOf(b.id) - arrayId.indexOf(a.id);
     })
 }
-console.log(SortObjectID(Sort_Alpha_Num([
-    {"id": 1, "value": "Marius"},
-    {"id": 2, "value": "Yassine"},
-    {"id": 3, "value": "Nathan"},
-    {"id": 4, "value": "Alfred"},
-    {"id": 5, "value": "Pierre"}
-], false)))
 
 /*
     _______TEST_______

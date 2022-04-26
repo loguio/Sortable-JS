@@ -128,7 +128,7 @@ function addRow(top, heroes) {
 }
 // showData();
 SearchBar()
-function SearchBar() {
+function SearchBar() { //Function that retrieves data from the search bar and sends it to the Search function
     let search = document.getElementById('searchBar')
     search.addEventListener("keyup", (e) => {
         Search.Search(e.target.value)
