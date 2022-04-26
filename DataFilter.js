@@ -1,5 +1,6 @@
-import { sort_Alpha_Num } from './sort.js'
 let url = "https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/"
+let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
+data = await data.json()
 
 
 async function GetData(url, id) {
