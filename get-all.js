@@ -12,9 +12,7 @@ let currentPage = 1;
 let max = 563;
 let maxPages = Math.ceil(max / numberOfItems);
 let url = "https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/"
-    // let data5 = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
-    // data5 = await data5.json()
-
+let descending = false;
 
 
 async function GetData(url, id) {
@@ -70,7 +68,7 @@ function filterName() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'biography', 'fullName'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'biography', 'fullName', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -82,7 +80,7 @@ function filterIntel() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'powerstats', 'intelligence'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'powerstats', 'intelligence', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -94,7 +92,7 @@ function filterStrength() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'powerstats', 'strength'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'powerstats', 'strength', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -106,7 +104,7 @@ function filterSpeed() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'powerstats', 'speed'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'powerstats', 'speed', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -118,7 +116,7 @@ function filterDurability() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'powerstats', 'durability'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'powerstats', 'durability', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -130,7 +128,7 @@ function filterPower() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'powerstats', 'power'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'powerstats', 'power', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -142,7 +140,7 @@ function filterCombat() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'powerstats', 'combat'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'powerstats', 'combat', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -154,7 +152,7 @@ function filterRace() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'appearance', 'race'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'appearance', 'race', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -166,7 +164,7 @@ function filterGender() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'appearance', 'gender'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'appearance', 'gender', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -178,7 +176,7 @@ function filterHeight() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'appearance', 'height'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'appearance', 'height', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -190,7 +188,7 @@ function filterWeight() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'appearance', 'weight'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'appearance', 'weight', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -202,7 +200,7 @@ function filterPoB() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'biography', 'placeOfBirth'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'biography', 'placeOfBirth', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -214,7 +212,7 @@ function filterAlignment() {
     table.innerHTML = ""
     tmp = filterFullName(url)
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'biography', 'alignment'), numberOfItems)
+        showData(sort_Alpha_Num(result, 'biography', 'alignment', descending), numberOfItems)
     })
     showPageInfo();
 }
@@ -232,48 +230,7 @@ function getSelectedValue() {
     if (!listofSorted.includes(sorted)) {
         showPage();
     } else {
-        switch (sorted) {
-            case 'name':
-                filterName()
-                break;
-            case 'intelligence':
-                filterIntel()
-                break;
-            case 'strength':
-                filterStrength()
-                break;
-            case 'speed':
-                filterSpeed()
-                break;
-            case 'durability':
-                filterDurability()
-                break;
-            case 'power':
-                filterPower()
-                break;
-            case 'combat':
-                filterCombat()
-                break;
-            case 'race':
-                filterRace()
-                break;
-            case 'gender':
-                filterGender()
-                break;
-            case 'height':
-                filterHeight()
-                break;
-            case 'weight':
-                filterWeight()
-                break;
-            case 'pob':
-                filterPoB()
-                break;
-            case 'alignment':
-                filterAlignment()
-                break;
-        }
-
+        switcher();
     }
     return numberOfItems
 }
@@ -318,48 +275,7 @@ function nextPage() {
             table.innerHTML = ""
             firstIndex += numberOfItems;
             currentPage++;
-            switch (sorted) {
-                case 'name':
-                    filterName();
-                    break;
-                case 'intelligence':
-                    filterIntel();
-                    break;
-                case 'strength':
-                    filterStrength();
-                    break;
-                case 'speed':
-                    filterSpeed();
-                    break;
-                case 'durability':
-                    filterDurability();
-                    break;
-                case 'power':
-                    filterPower()
-                    break;
-                case 'combat':
-                    filterCombat()
-                    break;
-                case 'race':
-                    filterRace()
-                    break;
-                case 'gender':
-                    filterGender()
-                    break;
-                case 'height':
-                    filterHeight()
-                    break;
-                case 'weight':
-                    filterWeight()
-                    break;
-                case 'pob':
-                    filterPoB()
-                    break;
-                case 'alignment':
-                    filterAlignment()
-                    break;
-
-            }
+            switcher();
         }
     }
 }
@@ -404,7 +320,8 @@ function lastPage() {
     if (!listofSorted.includes(sorted)) {
         var table = document.getElementById("tableData");
         table.innerHTML = ""
-        firstIndex = max - numberOfItems
+            // firstIndex = max - numberOfItems
+        firstIndex = (maxPages * numberOfItems) - numberOfItems;
         currentPage = maxPages;
         showPage();
     } else {
@@ -423,45 +340,53 @@ function showPageInfo() {
 
 function addRow(top, heroes) {
     // GET TABLE
-    var table = document.getElementById("tableData");
+    if (heroes != null) {
+        var table = document.getElementById("tableData");
 
-    // INSERT ROW
-    var row = table.insertRow()
-        // INSERT CELLS
-    var cell = row.insertCell();
-    cell.innerHTML = `<img src="${heroes.images.xs}">`
-    cell = row.insertCell();
-    cell.innerHTML = heroes.name;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.biography.fullName;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.powerstats.intelligence;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.powerstats.strength;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.powerstats.speed;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.powerstats.durability;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.powerstats.power;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.powerstats.combat;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.appearance.race;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.appearance.gender;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.appearance.height;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.appearance.weight;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.biography.placeOfBirth;
-    cell = row.insertCell();
-    cell.innerHTML = heroes.biography.alignment;
+        // INSERT ROW
+        var row = table.insertRow()
+            // INSERT CELLS
+        var cell = row.insertCell();
+        cell.innerHTML = `<img src="${heroes.images.xs}">`
+        cell = row.insertCell();
+        cell.innerHTML = heroes.name;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.biography.fullName;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.powerstats.intelligence;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.powerstats.strength;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.powerstats.speed;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.powerstats.durability;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.powerstats.power;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.powerstats.combat;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.appearance.race;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.appearance.gender;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.appearance.height;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.appearance.weight;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.biography.placeOfBirth;
+        cell = row.insertCell();
+        cell.innerHTML = heroes.biography.alignment;
+    }
 }
 // showData();
 
-function sort_Alpha_Num(arrayObjet, value1, value2) {
+function sort_Alpha_Num(arrayObjet, value1, value2, descending) {
+    if (descending === false) { //ascending and descending order
+        return arrayObjet.sort(compare)
+    } else {
+        return arrayObjet.sort(compare).reverse()
+    }
+
     function compare(firstValue, secondValue) {
         if (secondValue[value1][value2] == "" && firstValue[value1][value2] !== null) return -1;
         if (firstValue[value1][value2] == "" && secondValue[value1][value2] !== null) return 1;
@@ -471,7 +396,7 @@ function sort_Alpha_Num(arrayObjet, value1, value2) {
             return 1;
         return 0;
     }
-    return arrayObjet.sort(compare)
+    // return arrayObjet.sort(compare)
 }
 
 function TrieObjetID(arrayObjet = sort_Alpha_Num(arrayObjet)) {
@@ -529,3 +454,51 @@ function switcher() {
 
     }
 }
+
+function resetFilters() {
+    sorted = '';
+    var table = document.getElementById("tableData");
+    table.innerHTML = ""
+    firstIndex = 0
+    currentPage = 1;
+    showPage();
+}
+
+
+function ascendingOrder() {
+    descending = false;
+    console.log(descending);
+}
+
+
+function descendingOrder() {
+    descending = true;
+    console.log(descending);
+}
+// let dataSearch = data2
+
+
+// function Search(search) {
+//     const searchLowerCase = search.toLowerCase() //we put it in lower case so that it is not case sensitive
+//     let FilteredCharacters = data2.filter((objet) => { //Search for text in all categories
+//         return (
+//             objet.name.toLowerCase().includes(searchLowerCase) ||
+//             objet.biography.fullName.toLowerCase().includes(searchLowerCase) ||
+//             ((objet.appearance.race !== null) && objet.appearance.race.toLowerCase().includes(searchLowerCase)) ||
+//             ((objet.biography.placeOfBirth !== null) &&
+//                 objet.biography.placeOfBirth.toLowerCase().includes(searchLowerCase)
+//             )
+
+//         )
+//     });
+//     return FilteredCharacters
+// }
+
+
+// function SearchBar() { //Function that retrieves data from the search bar and sends it to the Search function
+//     let search = document.getElementById('searchBar')
+//     search.addEventListener("keyup", (e) => {
+//         console.log(Search(e.target.value))
+//         console.log(e.target.value)
+//     })
+// }
