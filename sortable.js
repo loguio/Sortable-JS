@@ -83,3 +83,19 @@ const loadData = heroes1 => {
             .then(loadData) // .then will call the function with the JSON value
         loadData();
     }
+
+document.getElementById("name").onclick = function() { myFunction() };
+document.getElementById("fullName").onclick = function() { myFunction() };
+document.getElementById("intelligence").onclick = function() { myFunction() };
+document.getElementById("strength").onclick = function() { myFunction() };
+document.getElementById("speed").onclick = function() { myFunction() };
+document.getElementById("durability").onclick = function() { myFunction() };
+document.getElementById("power").onclick = function() { myFunction() };
+document.getElementById("combat").onclick = function() { myFunction() };
+document.getElementById("race").onclick = function() { myFunction() };
+document.getElementById("gender").onclick = function() { myFunction() };
+document.getElementById("height").onclick = function() { myFunction() };
+document.getElementById("weight").onclick = function() { myFunction() };
+document.getElementById("plalaceOfBirth").onclick = function() { myFunction() };
+document.getElementById("alignement").onclick = function() { myFunction() };
+

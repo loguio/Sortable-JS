@@ -16,7 +16,7 @@ th,
 td {
     padding: 10px 20px;
     border: 1px solid #000;
-    background-color: #faf741;
+    background-color: #990000;
 }
 
 table {
@@ -73,32 +73,20 @@ tfoot {
     border-radius: 12px;
 }
 
-
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-
 .header a.logo {
     font-size: 25px;
     font-weight: bold;
 }
-
-
-/* Change the background color on mouse-over */
 
 .header a:hover {
     background-color: rgb(255, 255, 255);
     color: black;
 }
 
-
-/* Style the active/current link*/
-
 .header a.active {
     background-color: rgb(145, 137, 33);
     color: white;
 }
-
-
-/* Float the link section to the right */
 
 .header-right {
     float: right;
@@ -116,4 +104,15 @@ tfoot {
     .header-right {
         float: none;
     }
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 10px 20px;
+    border: 1px solid #000;
 }

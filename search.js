@@ -8,10 +8,9 @@ export function Search(search) {
         return (
             objet.name.toLowerCase().includes(searchLowerCase) ||
             objet.biography.fullName.toLowerCase().includes(searchLowerCase) ||
-            ((objet.appearance.race !== null) && objet.appearance.race.toLowerCase().includes(searchLowerCase)
-            ) ||
-            ((objet.biography.placeOfBirth !== null)
-                && objet.biography.placeOfBirth.toLowerCase().includes(searchLowerCase)
+            ((objet.appearance.race !== null) && objet.appearance.race.toLowerCase().includes(searchLowerCase)) ||
+            ((objet.biography.placeOfBirth !== null) &&
+                objet.biography.placeOfBirth.toLowerCase().includes(searchLowerCase)
             )
 
         )
