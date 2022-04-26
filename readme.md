@@ -206,9 +206,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Nathan  BOURRY  - nathan.bourry@ynov.com
-Pierre  DELANOU  - pierre.delanou@ynov.com
-Marius  BOURSE  - marius.bourse@ynov.com
+Nathan  BOURRY  - nathan.bourry@ynov.com\
+Pierre  DELANOU  - pierre.delanou@ynov.com\
+Marius  BOURSE  - marius.bourse@ynov.com\
 Yassine ENNOUHI  - yassine.ennouhi@ynov.com
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
