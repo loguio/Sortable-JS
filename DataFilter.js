@@ -2,7 +2,7 @@ import { sort_Alpha_Num } from './sort.js'
 let url = "https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/"
 
 
-async function GetData(url, id) {
+ export async function GetData(url, id) {
     try {
         var hero = await fetch(url + id.toString() + '.json')
         var heroData = await hero.json()
