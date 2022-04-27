@@ -474,3 +474,11 @@ function TrieObjetID(arrayObjet = sort_Alpha_Num(arrayObjet)) { //récuperer les
         return array.indexOf(a.id) - array.indexOf(b.id);
     })
 }
+
+SearchBar()
+function SearchBar() { //Function that retrieves data from the search bar and sends it to the Search function
+    let search = document.getElementById('searchBar')
+    search.addEventListener("keyup", (e) => {
+        Search.Search(e.target.value)
+    })
+}
