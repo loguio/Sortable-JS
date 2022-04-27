@@ -2,12 +2,12 @@
 
 var data = {}
 let elt = document.querySelector("select")
-console.log(elt.value)
 let numberOfItems = parseInt(elt.value);
 // elt.addEventListener("change", function() {
 //     numberOfItems = parseInt(elt.value)
 // })
-console.log(numberOfItems)
+
+//initialisation des variables
 let listofSorted = ['name', 'intelligence', 'strength', 'speed', 'durability', 'power', 'combat', 'race', 'gender', 'height', 'weight', 'pob', 'alignment']
 let firstIndex = 0;
 let currentPage = 1;
@@ -19,6 +19,7 @@ let descending = false;
 
 async function GetData(url, id) {
     try {
+        //récupération de la ddata sur l'api via fetch
         var hero = await fetch(url + id.toString() + '.json')
         var heroData = await hero.json()
         heroData.id = id
@@ -36,17 +37,16 @@ async function filterFullName(url, nb = max) {
     let result = []
     let count = 1
     let fail = 0
-    console.log("oui")
-    while (result.length <= nb) {
+    while (result.length <= nb) { //boucle qui se répète jusqu'à on ait un tableau d'objet du nombre que l'on veux afficher sur la page
         let PromiseList = []
         while (count <= nb + fail) {
-            PromiseList.push(GetData(url, count))
+            PromiseList.push(GetData(url, count)) //ajouter au tableau de promesse l'objet de l'api
             count++
         }
-        data = await Promise.all(PromiseList).then(function(values) {
+        data = await Promise.all(PromiseList).then(function(values) { //résolution des promesses
             return values
         })
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) { //vérifie si il n'y a pas d'erreur pour remettre dans le vrai tableau a renvoyer
             if (data[i] !== false) {
                 result.push(data[i])
             } else {
@@ -54,7 +54,7 @@ async function filterFullName(url, nb = max) {
             }
         }
         i++
-        if (i > 5) {
+        if (i > 5) { //arrete la boucle si il fais 5 fois la boucle ou plus 
             break
         }
     }
@@ -66,23 +66,23 @@ var sorted = ''
 function filterName() {
     sorted = 'name'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'biography', 'fullName', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'biography', 'fullName', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
-    showPageInfo();
+    showPageInfo(); //récupere le numéro de la page sur laquelle on se trouve
 }
 
 function filterIntel() {
     sorted = 'intelligence'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'powerstats', 'intelligence', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'powerstats', 'intelligence', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
     showPageInfo();
 }
@@ -90,11 +90,11 @@ function filterIntel() {
 function filterStrength() {
     sorted = 'strength'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'powerstats', 'strength', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'powerstats', 'strength', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
     showPageInfo();
 }
@@ -102,11 +102,11 @@ function filterStrength() {
 function filterSpeed() {
     sorted = 'speed'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'powerstats', 'speed', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'powerstats', 'speed', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
     showPageInfo();
 }
@@ -114,11 +114,11 @@ function filterSpeed() {
 function filterDurability() {
     sorted = 'durability'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'powerstats', 'durability', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'powerstats', 'durability', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
     showPageInfo();
 }
@@ -126,11 +126,11 @@ function filterDurability() {
 function filterPower() {
     sorted = 'power'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'powerstats', 'power', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'powerstats', 'power', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
     showPageInfo();
 }
@@ -138,11 +138,11 @@ function filterPower() {
 function filterCombat() {
     sorted = 'combat'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'powerstats', 'combat', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'powerstats', 'combat', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
     showPageInfo();
 }
@@ -150,11 +150,11 @@ function filterCombat() {
 function filterRace() {
     sorted = 'race'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'appearance', 'race', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'appearance', 'race', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
     showPageInfo();
 }
@@ -162,11 +162,11 @@ function filterRace() {
 function filterGender() {
     sorted = 'gender'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'appearance', 'gender', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'appearance', 'gender', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
     showPageInfo();
 }
@@ -174,11 +174,11 @@ function filterGender() {
 function filterHeight() {
     sorted = 'height'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'appearance', 'height', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'appearance', 'height', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
     showPageInfo();
 }
@@ -186,11 +186,11 @@ function filterHeight() {
 function filterWeight() {
     sorted = 'weight'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'appearance', 'weight', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'appearance', 'weight', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
     showPageInfo();
 }
@@ -198,11 +198,11 @@ function filterWeight() {
 function filterPoB() {
     sorted = 'pob'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'biography', 'placeOfBirth', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'biography', 'placeOfBirth', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
     showPageInfo();
 }
@@ -210,13 +210,13 @@ function filterPoB() {
 function filterAlignment() {
     sorted = 'alignment'
     console.log(sorted)
-    var table = document.getElementById("tableData");
-    table.innerHTML = ""
-    tmp = filterFullName(url)
+    var table = document.getElementById("tableData"); //recupere le tableau sur la page
+    table.innerHTML = "" //efface le tableau
+    tmp = filterFullName(url) //execute la fonction filterFullName qui récupere les données 
     tmp.then(function(result) {
-        showData(sort_Alpha_Num(result, 'biography', 'alignment', descending), numberOfItems)
+        showData(sort_Alpha_Num(result, 'biography', 'alignment', descending), numberOfItems) //execute la fonction qui affiche sur la page les objets
     })
-    showPageInfo();
+    showPageInfo(); //récupere le numéro de la page sur laquelle on se trouve
 }
 
 
@@ -238,14 +238,14 @@ function getSelectedValue() {
 }
 
 
-async function getAll(obj) {
+async function getAll(obj) { //récupere l'api entière
     var hero = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json');
     var heroData = await hero.json()
     Object.assign(obj, heroData)
     return obj
 }
 
-let data2 = getAll(data)
+let data2 = getAll(data) //assigne les donnée de l'api a la variable data2
 
 function showPage() {
     data2.then(function first(result) {
@@ -254,7 +254,7 @@ function showPage() {
     showPageInfo();
 }
 
-showPage();
+showPage(); //execute la fonction sur la page
 
 function showData(data, numberOfItems) {
     for (let i = firstIndex; i < firstIndex + numberOfItems; i++) {
@@ -262,9 +262,9 @@ function showData(data, numberOfItems) {
     }
 }
 
-function nextPage() {
-    if (!listofSorted.includes(sorted)) {
-        if (firstIndex + numberOfItems <= max) {
+function nextPage() { //fonction pour la pagination
+    if (!listofSorted.includes(sorted)) { //vérifie si la page est trier
+        if (firstIndex + numberOfItems <= max) { //affiche sur la page le tableau
             var table = document.getElementById("tableData");
             table.innerHTML = ""
             firstIndex += numberOfItems;
@@ -272,7 +272,7 @@ function nextPage() {
             showPage();
         }
     } else {
-        if (firstIndex + numberOfItems <= max) {
+        if (firstIndex + numberOfItems <= max) { //affiche sur la page le tableau en fonction du filtre
             var table = document.getElementById("tableData");
             table.innerHTML = ""
             firstIndex += numberOfItems;
@@ -282,9 +282,9 @@ function nextPage() {
     }
 }
 
-function previous() {
-    if (!listofSorted.includes(sorted)) {
-        if (firstIndex - numberOfItems > 0) {
+function previous() { //fonction pour la pagination
+    if (!listofSorted.includes(sorted)) { //vérifie si la page est trier
+        if (firstIndex - numberOfItems > 0) { //affiche sur la page le tableau
             var table = document.getElementById("tableData");
             table.innerHTML = ""
             firstIndex -= numberOfItems
@@ -292,7 +292,7 @@ function previous() {
             showPage();
         }
     } else {
-        if (firstIndex - numberOfItems > 0) {
+        if (firstIndex - numberOfItems > 0) { //affiche sur la page le tableau en fonction du filtre
             var table = document.getElementById("tableData");
             table.innerHTML = ""
             firstIndex -= numberOfItems
@@ -302,14 +302,14 @@ function previous() {
     }
 }
 
-function firstPage() {
-    if (!listofSorted.includes(sorted)) {
+function firstPage() { //fonction pour la pagination
+    if (!listofSorted.includes(sorted)) { //vérifie si la page est trier
         var table = document.getElementById("tableData");
         table.innerHTML = ""
         firstIndex = 0
         currentPage = 1;
         showPage();
-    } else {
+    } else { //affiche sur la page le tableau en fonction du filtre
         var table = document.getElementById("tableData");
         table.innerHTML = ""
         firstIndex = 0
@@ -318,15 +318,15 @@ function firstPage() {
     }
 }
 
-function lastPage() {
-    if (!listofSorted.includes(sorted)) {
+function lastPage() { //fonction pour la pagination
+    if (!listofSorted.includes(sorted)) { //vérifie si la page est trier
         var table = document.getElementById("tableData");
         table.innerHTML = ""
             // firstIndex = max - numberOfItems
         firstIndex = (maxPages * numberOfItems) - numberOfItems;
         currentPage = maxPages;
         showPage();
-    } else {
+    } else { //affiche sur la page le tableau en fonction du filtre
         var table = document.getElementById("tableData");
         table.innerHTML = ""
         firstIndex = (maxPages * numberOfItems) - numberOfItems;
@@ -382,7 +382,7 @@ function addRow(top, heroes) {
 }
 // showData();
 
-function switcher() {
+function switcher() { //execute la fonction associer au filtre récupéré
     switch (sorted) {
         case 'name':
             filterName();
@@ -427,7 +427,7 @@ function switcher() {
     }
 }
 
-function resetFilters() {
+function resetFilters() { //fonction pour reset le filtre
     sorted = '';
     var table = document.getElementById("tableData");
     table.innerHTML = ""
@@ -437,25 +437,25 @@ function resetFilters() {
 }
 
 
-function ascendingOrder() {
+function ascendingOrder() { //fonction pour trier le tableau par ordre croissant
     descending = false;
     console.log(descending);
 }
 
 
-function descendingOrder() {
+function descendingOrder() { //fonction pour trier le tableau par ordre décroissant
     descending = true;
     console.log(descending);
 }
 
-function sort_Alpha_Num(arrayObjet, value1, value2, descending) {
+function sort_Alpha_Num(arrayObjet, value1, value2, descending) { //fonction pour trier le tableau par ordre alphabétique et numérique
     if (descending === false) { //ascending and descending order
         return arrayObjet.sort(compare)
     } else {
         return arrayObjet.sort(compare).reverse()
     }
 
-    function compare(firstValue, secondValue) {
+    function compare(firstValue, secondValue) { //trie deux valeurs
         if (secondValue[value1][value2] == "" && firstValue[value1][value2] !== null) return -1;
         if (firstValue[value1][value2] == "" && secondValue[value1][value2] !== null) return 1;
         if (secondValue[value1][value2] == '' || firstValue[value1][value2] < secondValue[value1][value2])
@@ -466,7 +466,7 @@ function sort_Alpha_Num(arrayObjet, value1, value2, descending) {
     }
 }
 
-function TrieObjetID(arrayObjet = sort_Alpha_Num(arrayObjet)) {
+function TrieObjetID(arrayObjet = sort_Alpha_Num(arrayObjet)) { //récuperer les objet avec leur ID
     let array = []
     for (let index = 0; index < arrayObjet.length; index++) {
         const element = arrayObjet[index];
