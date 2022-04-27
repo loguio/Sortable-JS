@@ -1,4 +1,4 @@
-//import * as Search from "./search.js"
+import * as Search from "./search.js"
 
 var data = {}
 let elt = document.querySelector("select")
@@ -478,6 +478,7 @@ function TrieObjetID(arrayObjet = sort_Alpha_Num(arrayObjet)) { //récuperer les
 }
 
 SearchBar()
+
 function SearchBar() { //Function that retrieves data from the search bar and sends it to the Search function
     let search = document.getElementById('searchBar')
     search.addEventListener("keyup", (e) => {

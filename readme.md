@@ -12,6 +12,12 @@ Another important point, the data is preloaded to optimize loading.
 - Javascript(JS)
 - HTML/CSS
 
+## Lien du commit avec le filtre du poid qui fonctionne :
+
+Le code du filtre se situe dans le fichier recupData.js, mais le fichier ne se lance pas dans l'html et il ne s'excutera pas car la fonction sort n'était pas terminé et il faudrait aussi ajouter le fichier au script pour qu'il fonctionne. Mais on voit bien dans le code que on récupère les valeur et les transformons en Number pour qu'ils soit bien trié numériquement
+
+https://git.ytrack.learn.ynov.com/MBOURSE/Sortable/src/commit/3e79eb344bbde97eff67b10b0f70b6442f85090d
+
 
 ## Author
 - BOURRY Nathan
